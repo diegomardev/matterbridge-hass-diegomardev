@@ -133,7 +133,7 @@ export class HomeAssistantPlatform extends MatterbridgeDynamicPlatform {
   /** Domains that are treated as individual entities */
   readonly individualEntitiesDomains = ['automation', 'scene', 'script', 'input_boolean', 'input_button'];
   /** Supported core domains */
-  readonly supportedCoreDomains = ['switch', 'light', 'lock', 'fan', 'cover', 'climate', 'valve', 'vacuum'];
+  //readonly supportedCoreDomains = ['switch', 'light', 'lock', 'fan', 'cover', 'climate', 'valve', 'vacuum'];
   readonly supportedCoreDomains = [
     'switch',
     'light',
