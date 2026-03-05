@@ -18,6 +18,19 @@
 [![powered by](https://img.shields.io/badge/powered%20by-node--persist--manager-blue)](https://www.npmjs.com/package/node-persist-manager)
 
 ---
+# matterbridge-hass-diegomardev
+---
+## For install need node 24
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+nvm install 24
+node -v
+npm -v
+git clone https://github.com/diegomardev/matterbridge-hass-diegomardev
+cd matterbridge-hass-diegomardev/
+npm ci
+npm run npmPack
+```
 
 This plugin allows you to expose the Home Assistant devices and individual entities to Matter.
 
