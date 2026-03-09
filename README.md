@@ -20,6 +20,11 @@
 ---
 # matterbridge-hass-diegomardev
 ---
+## For update only with media_player
+Only download the matterbridge-hass-5.9.20-dev-20260309-b3c0c5f.tgz file and upload in the plugins section and restart the app matterbridge
+<img width="1329" height="289" alt="image" src="https://github.com/user-attachments/assets/c88f73f3-1243-4ebb-8fe6-3cc31bd04533" />
+
+---
 ## For install need node 24
 ```
 # Install NVM (Node Version Manager)
