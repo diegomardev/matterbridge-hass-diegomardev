@@ -18,7 +18,7 @@
 [![powered by](https://img.shields.io/badge/powered%20by-node--persist--manager-blue)](https://www.npmjs.com/package/node-persist-manager)
 
 ---
-# matterbridge-hass-diegomardev
+# matterbridge-hass-mediaplayer
 ---
 ## For update only with media_player
 Only download the matterbridge-hass-5.9.20-dev-20260309-b3c0c5f.tgz file and upload in the plugins section and restart the app matterbridge
@@ -43,9 +43,26 @@ node -v
 npm -v
 
 # Clone the repository
-git clone https://github.com/diegomardev/matterbridge-hass-diegomardev
-cd matterbridge-hass-diegomardev/
+git clone https://github.com/diegomardev/matterbridge-hass-mediaplayer
+cd matterbridge-hass-mediaplayer/
 
+# 1. Login en npm
+npm login
+npm whoami
+
+# 2. Instalar dependencias
+npm ci
+
+# 3. Según tu README, preparar entorno local
+npm i -g matterbridge
+npm link matterbridge
+npm i -g typescript
+
+# 4. Publicar la release estable
+npm run npmPublishTagLatest
+
+
+#OLD steps
 # (Optional but recommended) Clean the working tree (removes node_modules, dist, etc.)
 # WARNING: this deletes ALL untracked files in the repo folder.
 git clean -fdx
@@ -57,7 +74,7 @@ npm ci
 # (npmPack will fail if the version already contains -dev-... from a previous failed run)
 npm pkg set version="1.0.8"
 # 1) Cambiar el nombre del paquete
-npm pkg set name="matterbridge-hass-diegomardev"
+npm pkg set name="matterbridge-hass-mediaplayer"
 # Install Matterbridge globally and link it locally
 # This makes TypeScript able to resolve `matterbridge/*` imports during compilation
 npm i -g matterbridge
