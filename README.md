@@ -59,6 +59,7 @@ npm link matterbridge
 npm i -g typescript
 
 # 4. Publicar la release estable
+npm version patch
 npm run npmPublishTagLatest
 
 
