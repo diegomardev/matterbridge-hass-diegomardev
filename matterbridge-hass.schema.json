@@ -1,6 +1,6 @@
 {
   "title": "Matterbridge Home Assistant plugin",
-  "description": "matterbridge-hass-diegomardev v. 0.0.1 by https://github.com/diegomardev",
+  "description": "matterbridge-hass-mediaplayer v. 0.0.1 by https://github.com/diegomardev",
   "type": "object",
   "required": ["host", "token"],
   "properties": {
