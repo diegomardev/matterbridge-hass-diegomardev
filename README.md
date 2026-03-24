@@ -26,13 +26,14 @@
 ## For update only with media_player
 
 Only download the matterbridge-hass-5.9.20-dev-20260309-b3c0c5f.tgz file and upload in the plugins section and restart the app matterbridge
+
 <img width="1329" height="289" alt="image" src="https://github.com/user-attachments/assets/c88f73f3-1243-4ebb-8fe6-3cc31bd04533" />
 
 ---
 
 ## For install need node 24
 
-```
+```bash
 # Install NVM (Node Version Manager)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
@@ -117,25 +118,30 @@ Features:
 - Support **Apple Home Adaptive Lighting**. See https://github.com/Luligu/matterbridge/discussions/390.
 - Support **transition time**.
 - Support system unit **CELSIUS** and **FAHRENHEIT**.
+- Support `media_player` and `remote` domains exposed as Matter on/off outlets.
 - Jest test coverage = 100%.
 
 ## Supported device entities:
 
-| Domain     | Supported states                          | Supported attributes                                                                    |
-| ---------- | ----------------------------------------- | --------------------------------------------------------------------------------------- |
-| switch     | on, off                                   |                                                                                         |
-| light      | on, off                                   | brightness, color_mode, color_temp, hs_color, xy_color                                  |
-| lock       | locked, locking, unlocking, unlocked      |                                                                                         |
-| fan        | on, off                                   | percentage, preset_mode (1), direction, oscillating                                     |
-| cover      | open, closed, opening, closing            | current_position                                                                        |
-| climate    | off, heat, cool, heat_cool, auto          | current_temperature, temperature, target_temp_low, target_temp_high, min_temp, max_temp |
-| valve      | open, closed, opening, closing            | current_position                                                                        |
-| vacuum (2) | idle, cleaning, paused, docked, returning |                                                                                         |
-| button     |                                           |                                                                                         |
+| Domain           | Supported states                                                | Supported attributes                                                                    |
+| ---------------- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| switch           | on, off                                                         |                                                                                         |
+| light            | on, off                                                         | brightness, color_mode, color_temp, hs_color, xy_color                                  |
+| lock             | locked, locking, unlocking, unlocked                            |                                                                                         |
+| fan              | on, off                                                         | percentage, preset_mode (1), direction, oscillating                                     |
+| cover            | open, closed, opening, closing                                  | current_position                                                                        |
+| climate          | off, heat, cool, heat_cool, auto                                | current_temperature, temperature, target_temp_low, target_temp_high, min_temp, max_temp |
+| valve            | open, closed, opening, closing                                  | current_position                                                                        |
+| vacuum (2)       | idle, cleaning, paused, docked, returning                       |                                                                                         |
+| media_player (3) | off, unavailable, unknown, on, idle, playing, paused, buffering |                                                                                         |
+| remote (3)       | on, off, unavailable, unknown                                   |                                                                                         |
+| button           |                                                                 |                                                                                         |
 
 (1) - Supported preset_modes: auto, low, medium, high.
 
 (2) - The Apple Home crashes if the Rvc is inside the bridge. If you pair with Apple Home use the server mode in the config (it will create an autonomous device with its QR code in the Devices panel of the Home page) and disable or split all other entities that are not the rvc.
+
+(3) - `media_player` and `remote` are currently exposed as Matter **on/off outlets**. Supported Home Assistant services are `turn_on`, `turn_off`, and `toggle`. For `media_player`, the states `on`, `idle`, `playing`, `paused`, and `buffering` are mapped to Matter **on**, while `off`, `unavailable`, and `unknown` are mapped to Matter **off**. For `remote`, `on` is mapped to Matter **on**, while `off`, `unavailable`, and `unknown` are mapped to Matter **off**.
 
 These domains are supported also like individual and split entities.
 
@@ -239,11 +245,8 @@ Just open the frontend, select the matterbridge-hass plugin and click on install
 There are 2 different source of Matter devices coming from matterbridge-hass plugin:
 
 - Regular devices with their entities that use the main whiteList, blackList and deviceEntityBlackList. You find them in Home Assistant at http://homeassistant.local:8123/config/devices/dashboard.
-
 - Individual entities with domain scene, script, automation. You find these special entities in Home Assistant at http://homeassistant.local:8123/config/automation/dashboard, http://homeassistant.local:8123/config/scene/dashboard and http://homeassistant.local:8123/config/script/dashboard.
-
 - Individual entities (helpers) with domain input_boolean, input_button. You find these special entities in Home Assistant at http://homeassistant.local:8123/config/helpers.
-
 - Individual entities from template. You find these special entities in Home Assistant at http://homeassistant.local:8123/config/helpers.
 
 All the individual entities use the main whiteList, blackList.
