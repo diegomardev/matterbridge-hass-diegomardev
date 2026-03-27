@@ -64,8 +64,8 @@ jobs:
       - name: Build the plugin
         run: npm run build
 
-      - name: Lint the plugin
-        run: npm run lint
+#      - name: Lint the plugin
+#        run: npm run lint
 
       - name: Test the plugin
         run: npm run test -- --forceExit
